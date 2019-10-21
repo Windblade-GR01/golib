@@ -120,6 +120,11 @@ func (fb *File) Seek(offset int64, whence int) (int64, error) {
 	return abs, nil
 }
 
+// It imitates close for compatibility, actually does nothing.
+func (fb *File) Close() error {
+	return nil
+}
+
 // Truncate changes the size of the file. It does not change the I/O offset.
 func (fb *File) Truncate(n int64) error {
 	fb.m.Lock()
